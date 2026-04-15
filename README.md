@@ -1,5 +1,3 @@
-# Quant
-
 [![Python](https://img.shields.io/badge/python-3.11+-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![Kalshi](https://img.shields.io/badge/exchange-Kalshi-0a1628.svg)](https://kalshi.com)
 [![Status](https://img.shields.io/badge/status-paper_trading-yellow.svg)](#usage)
