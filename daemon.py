@@ -11,11 +11,25 @@ Environment variables:
 
 from __future__ import annotations
 
+import sys
+import types
 import asyncio
 import logging
 import os
 import signal
 from pathlib import Path
+
+# Register repo root as 'latency' package when folder name != 'latency'
+_repo_root = Path(__file__).resolve().parent
+if "latency" not in sys.modules:
+    _pkg = types.ModuleType("latency")
+    _pkg.__path__ = [str(_repo_root)]  # type: ignore[assignment]
+    _pkg.__file__ = str(_repo_root / "__init__.py")
+    _pkg.__package__ = "latency"
+    _pkg.__spec__ = None  # type: ignore[assignment]
+    sys.modules["latency"] = _pkg
+if str(_repo_root) not in sys.path:
+    sys.path.insert(0, str(_repo_root))
 
 from latency.core.logging import configure_logging
 
